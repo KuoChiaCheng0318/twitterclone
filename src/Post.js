@@ -19,7 +19,7 @@ function Post( {displayName,username,verfied,text,image,avatar} ) {
                 <div className='post__headerText'>
                     <h3>displayname {" "}<span className="post__headerSpecial">
                         <VerifiedUserIcon className="post__badge" />
-                        @username2
+                        @username
                     </span>
                     </h3>
                 </div>
@@ -28,6 +28,7 @@ function Post( {displayName,username,verfied,text,image,avatar} ) {
                 </div>
             </div>
             <img src="https://media0.giphy.com/media/26ufh9clS97q1cdcQ/giphy.gif" alt=""/>
+            {/* <img src="" alt=""/> */}
             <div className='post__footer'>
                 <ChatBubbleOutlineIcon fontSize="small" />
                 <RepeatIcon fontSize="small" />

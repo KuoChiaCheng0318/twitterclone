@@ -1,28 +1,46 @@
-import React from 'react'
+import React, {useState, useEffect} from "react";
 import './Feed.css'
 import TweetBox from './TweetBox'
 import Post from './Post'
+import db from "./firebase";
+import FlipMove from "react-flip-move";
 
 
 function Feed() {
+  // useState -> react hook to prepare for variable, video 2:50
+  const [posts, setPosts] = useState([])
+// useEffect -> code run based on given condition
+  useEffect(() => {
+    db.collection("posts").onSnapshot((snapshot) => 
+      setPosts(snapshot.docs.map((doc) => doc.data()))
+      // snapshot.docs.map(doc => doc.data) gives an array of all of the posts in firebase database
+      // onSnapshot ->  anytime database delete, edit, add, changes, grab a snapshot, give to setPosts().
+    )
+  },[])
+  // useEffect, means run what's inside useEffect when Feed component loads, but the [] in the end means don't run again after.
+  // if the end brasket have [name, age], then what's inside useEffect will run whenever name, age changes.
   return (
     <div className='feed'>
-        {/* Header */}
+        
         <div className='feed__header'>
             <h2>Home</h2>
         </div>
 
-        {/* TweetBox */}
+        
         <TweetBox />
         
-
-        {/* Post */}
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
-        <Post />
+        <FlipMove>
+        {posts.map((post) =>(
+          <Post 
+            displayName={post.displayName}
+            username={post.username}
+            verified={post.verified}
+            text={post.text}
+            avatar={post.avatar}
+            image={post.image}
+          />
+        ))}
+        </FlipMove>
         
     </div>
   )

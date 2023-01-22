@@ -2,6 +2,12 @@
     flex: 0.3;
 }
 
+@media (max-width: 768px) {
+    .widgets {
+        display: none;
+    }
+}
+
 .widgets__input {
     display: flex;
     align-items: center;

@@ -7,6 +7,12 @@
     padding-right: 20px;
 }
 
+@media (max-width: 768px) {
+    .sidebar {
+        display: none;
+    }
+}
+
 .sidebar__twitterIcon{
     color: var(--twitter-color);
     font-size: 30px !important;

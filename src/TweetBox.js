@@ -10,12 +10,12 @@ function TweetBox() {
     const sendTweet = e=> {
         e.preventDefault();
         db.collection('posts').add({
-            displayName: "displayName123",
-            username: 'username123',
+            displayName: "CharlesKuo",
+            username: 'charleskuo',
             verified: true,
             text: tweetMessage,
             image: tweetImage,
-            avatar: "https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png"
+            avatar: "up.jpg"
         });
         setTweetMessage("");
         setTweetImage("");
@@ -25,7 +25,7 @@ function TweetBox() {
     <div className='tweetBox'>
         <form>
             <div className='tweetBox__input'>
-                <Avatar src="https://upload.wikimedia.org/wikipedia/commons/9/99/Sample_User_Icon.png" />
+                <Avatar src="up.jpg" />
                 <input 
                 onChange={e => setTweetMessage(e.target.value)}
                 value={tweetMessage} 

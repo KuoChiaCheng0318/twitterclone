@@ -9,7 +9,7 @@ import PublishIcon from "@material-ui/icons/Publish";
 
 
 const Post = forwardRef(
-    ({ displayName, username, verified, text, image, avatar }, ref) => {
+    ({ displayName, username, verified, text, image, avatar, timestamp }, ref) => {
         return (
             <div className='post' ref={ref}>
                 <div className='post__avatar'>
@@ -21,7 +21,7 @@ const Post = forwardRef(
                             <h3>{displayName} {" "}<span className="post__headerSpecial">
                                 {/* verified -> show verified button, if verified return false, don't show verified badge. */}
                                 {verified &&<VerifiedUserIcon className="post__badge" />}
-                                @{username}
+                                @{username} . {new Date(timestamp.toDate()).toUTCString()}
                             </span>
                             </h3>
                         </div>

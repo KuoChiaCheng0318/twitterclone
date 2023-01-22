@@ -11,7 +11,8 @@ function Feed() {
   const [posts, setPosts] = useState([])
 // useEffect -> code run based on given condition
   useEffect(() => {
-    db.collection("posts").onSnapshot((snapshot) => 
+    // .orderBy("timestamp", "desc") -> sort firebase data by timestamp
+    db.collection("posts").orderBy("timestamp", "desc").onSnapshot((snapshot) => 
       setPosts(snapshot.docs.map((doc) => doc.data()))
       // snapshot.docs.map(doc => doc.data) gives an array of all of the posts in firebase database
       // onSnapshot ->  anytime database delete, edit, add, changes, grab a snapshot, give to setPosts().

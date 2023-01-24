@@ -80,6 +80,7 @@
     z-index: 1;
     border-radius: 10px;
     text-align: center;
+    font-weight: 700;
  }
   
 .sidebar__dropdown:hover .dropdown-content {

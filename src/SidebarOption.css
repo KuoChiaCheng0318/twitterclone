@@ -24,3 +24,9 @@
 .sidebarOption--active{
     color: var(--twitter-color)
 }
+
+@media (max-width: 768px) {
+    .sidebarOption > h2 {
+        display: none;
+    }
+}

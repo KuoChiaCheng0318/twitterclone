@@ -1,0 +1,84 @@
+.footer{
+    position: fixed;
+    display: flex;
+    bottom: 0;
+    height: 50px;
+    width: 100% !important;
+    background-color: var(--twitter-color);
+    padding: 20px;
+    color: white;
+    z-index: 1;
+    justify-content: space-between;
+}
+
+.footer_text{
+    margin-left: 30%;
+    min-width: 400px;
+}
+
+.buttons{
+    display: flex;
+}
+
+.signup{
+    margin-right: 150px;
+    margin-left: 5px;
+    border-style: solid;
+    border-width: thin;
+    border-color: white ;
+    color: black ;
+    font-weight: 700 ;
+    border-radius: 30px ;
+    width: 90px;
+    height: 25px;
+    text-align: center;
+    background-color: white;
+    padding: 10px 0;
+    cursor: pointer;
+}
+
+.login{
+    margin-right: 5px;
+    border-style: solid;
+    border-width: thin;
+    border-color: white ;
+    color: white ;
+    font-weight: 700 ;
+    border-radius: 30px ;
+    width: 90px;
+    height: 25px;
+    text-align: center;
+    padding: 10px 0;
+    cursor: pointer;
+}
+
+.signup:hover{
+    background-color: #e8f5fe;
+}
+
+.login:hover{
+    background-color: #68c1f6;
+}
+
+
+
+
+@media (max-width: 768px) {
+    .footer_text {
+        display: none;
+    }
+
+    .buttons {
+        width: 90%;
+    }
+
+    .signup {
+        width: 50%;
+        margin-right: 10px;
+    }
+
+    .login {
+        width: 50%;
+        margin-left: 10px;
+    }
+}

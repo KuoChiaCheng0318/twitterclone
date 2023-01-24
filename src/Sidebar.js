@@ -11,9 +11,65 @@ import ListAltIcon from "@material-ui/icons/ListAlt";
 import PermIdentityIcon from "@material-ui/icons/PermIdentity";
 import MoreHorizIcon from "@material-ui/icons/MoreHoriz";
 import {Button} from "@material-ui/core"
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
+import { auth, provider } from "./firebase";
+import {
+  selectUserName,
+  selectUserPhoto,
+  setUserLoginDetails,
+  setSignOutState,
+} from "./userSlice";
+import { useEffect } from "react";
 
 
 function Sidebar() {
+
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const userName = useSelector(selectUserName);
+  const userPhoto = useSelector(selectUserPhoto);
+
+  useEffect(() => {
+    auth.onAuthStateChanged(async (user) => {
+      if (user) {
+        setUser(user);
+        history.push("/");
+      }
+    });
+  }, [userName]);
+
+  const handleAuth = () => {
+    if (!userName) {
+      auth
+        .signInWithPopup(provider)
+        .then((result) => {
+          setUser(result.user);
+        })
+        .catch((error) => {
+          alert(error.message);
+        });
+    } else if (userName) {
+      auth
+        .signOut()
+        .then(() => {
+          dispatch(setSignOutState());
+          history.push("/");
+        })
+        .catch((err) => alert(err.message));
+    }
+  };
+
+  const setUser = (user) => {
+    dispatch(
+      setUserLoginDetails({
+        name: user.displayName,
+        email: user.email,
+        photo: user.photoURL,
+      })
+    );
+  };
+  
   return (
     <div className='sidebar'>
         <TwitterIcon className='sidebar__twitterIcon' />
@@ -27,6 +83,21 @@ function Sidebar() {
         <SidebarOption Icon={MoreHorizIcon} text="More" />
 
         <Button variant="outlined" className="sidebar__tweet" fullWidth>Tweet</Button>
+        {!userName ? (<></>):(
+          <div className='sidebar__dropdown'>
+            <div className='sidebar__user'>
+              <img src={userPhoto} alt={userName} referrerpolicy="no-referrer"/>
+              <div className='sidebar__userdetails'>
+                <h3>{userName}</h3>
+              </div>
+            </div>
+            <div className="dropdown-content" onClick={handleAuth}>Log out</div>
+          </div>
+          
+        )}
+        
+        
+        
     </div>
     
 

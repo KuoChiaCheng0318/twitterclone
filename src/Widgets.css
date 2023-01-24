@@ -1,5 +1,6 @@
 .widgets{
     flex: 0.3;
+    margin-right: 100px;
 }
 
 @media (max-width: 768px) {

@@ -3,25 +3,27 @@ import 'firebase/compat/auth';
 import 'firebase/compat/firestore';
 import 'firebase/compat/storage';
 
+
 const firebaseConfig = {
-  apiKey: "AIzaSyB2hk7R1uOCyZE-VMtRKp8l40nUcHhKpOY",
+  apiKey: "AIzaSyC0Ze6njdxE7zwVBnhZrIjqArAf0PUN-gw",
 
-  authDomain: "twittercloneapp-7fc26.firebaseapp.com",
+  authDomain: "twitter-clone20230114a.firebaseapp.com",
 
-  projectId: "twittercloneapp-7fc26",
+  projectId: "twitter-clone20230114a",
 
-  storageBucket: "twittercloneapp-7fc26.appspot.com",
+  storageBucket: "twitter-clone20230114a.appspot.com",
 
-  messagingSenderId: "784349435225",
+  messagingSenderId: "507614479857",
 
-  appId: "1:784349435225:web:79e3083aa0e8257a062848",
-
-  measurementId: "G-7JLDDHSFFS"
+  appId: "1:507614479857:web:9a78f64f5ddc5803c0f050"
 
 };
 
 const firebaseApp = firebase.initializeApp(firebaseConfig);
 
 const db = firebaseApp.firestore();
+const auth = firebase.auth();
+const provider = new firebase.auth.GoogleAuthProvider();
 
 export default db;
+export { auth, provider};

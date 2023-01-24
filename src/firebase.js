@@ -5,17 +5,19 @@ import 'firebase/compat/storage';
 
 
 const firebaseConfig = {
-  apiKey: "AIzaSyC0Ze6njdxE7zwVBnhZrIjqArAf0PUN-gw",
+  apiKey: "AIzaSyB2hk7R1uOCyZE-VMtRKp8l40nUcHhKpOY",
 
-  authDomain: "twitter-clone20230114a.firebaseapp.com",
+  authDomain: "twittercloneapp-7fc26.firebaseapp.com",
 
-  projectId: "twitter-clone20230114a",
+  projectId: "twittercloneapp-7fc26",
 
-  storageBucket: "twitter-clone20230114a.appspot.com",
+  storageBucket: "twittercloneapp-7fc26.appspot.com",
 
-  messagingSenderId: "507614479857",
+  messagingSenderId: "784349435225",
 
-  appId: "1:507614479857:web:9a78f64f5ddc5803c0f050"
+  appId: "1:784349435225:web:79e3083aa0e8257a062848",
+
+  measurementId: "G-7JLDDHSFFS"
 
 };
 

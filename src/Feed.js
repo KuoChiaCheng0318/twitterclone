@@ -7,7 +7,7 @@ import FlipMove from "react-flip-move";
 
 
 function Feed() {
-  // useState -> react hook to prepare for variable, video 2:50
+  // useState -> react hook to prepare for variable
   const [posts, setPosts] = useState([])
 // useEffect -> code run based on given condition
   useEffect(() => {
